@@ -1,0 +1,33 @@
+.wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.wheelWrapper {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wheelCover {
+    position: absolute;
+    top: 250px;
+    width: 500px;
+    height: 250px;
+    background-color: #111137;
+    border-radius: 0 0 50% 50% / 0 0 100% 100%;
+}
+
+.arrow {
+    position: absolute;
+}
+
+.spinButton {
+    margin-top: 25px;
+    padding: 10px;
+}

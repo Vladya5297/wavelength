@@ -1,0 +1,69 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended",
+        "airbnb"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 13,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "react/function-component-definition": [2, {
+            "namedComponents": "arrow-function",
+            "unnamedComponents": "arrow-function"
+        }],
+        "react/react-in-jsx-scope": 2,
+        "react/jsx-uses-react": 2,
+        "react/jsx-indent": [2, 4],
+        "react/jsx-indent-props": [2, 4],
+        "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".jsx"] }],
+        "react/jsx-props-no-spreading": 0,
+        "react/require-default-props": 0,
+
+        "jsx-a11y/click-events-have-key-events": 0,
+        "jsx-a11y/no-static-element-interactions": 0,
+
+        "import/prefer-default-export": 0,
+        "import/no-unresolved": 0,
+        "import/extensions": 0,
+        "import/no-extraneous-dependencies": 0,
+        "import/order": [2, {"newlines-between": "always-and-inside-groups"}],
+        
+        "object-curly-newline": [2, { "consistent": true }],
+        "arrow-parens": [2, "as-needed"],
+        "no-unused-expressions": 0,
+        "arrow-body-style": 0,
+        "block-spacing": [2, "never"],
+        "prefer-destructuring": 0,
+        
+        "indent": 0,
+        "@typescript-eslint/indent": [2, 4],
+
+        "semi": 0,
+        "@typescript-eslint/semi": [2, "always", { "omitLastInOneLineBlock": true}],
+
+        "object-curly-spacing": 0,
+        "@typescript-eslint/object-curly-spacing": [2, "never"],
+        
+        "no-unused-vars": 0,
+        "@typescript-eslint/no-unused-vars": 2,
+
+        "@typescript-eslint/member-delimiter-style": 2,
+        "@typescript-eslint/consistent-type-imports": [2, {"prefer": "type-imports"}],
+        "@typescript-eslint/ban-ts-comment": 0
+    }
+}

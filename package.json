@@ -1,0 +1,30 @@
+{
+    "name": "wavelength",
+    "scripts": {
+        "build-client": "node scripts/buildClient.js",
+        "build-server": "node scripts/buildServer.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.18.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    },
+    "devDependencies": {
+        "@types/express": "^4.17.13",
+        "@types/react": "^18.0.15",
+        "@types/react-dom": "^18.0.6",
+        "@typescript-eslint/eslint-plugin": "^5.32.0",
+        "@typescript-eslint/parser": "^5.32.0",
+        "esbuild": "^0.14.51",
+        "esbuild-css-modules-plugin": "^2.5.1",
+        "eslint": "^8.21.0",
+        "eslint-config-airbnb": "^19.0.4",
+        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-jsx-a11y": "^6.6.1",
+        "eslint-plugin-react": "^7.30.1",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "typescript-plugin-css-modules": "^3.4.0"
+    }
+}

@@ -36,7 +36,7 @@ esbuild.build({
             }
         },
     },
-    plugins: [cssModulesPlugin()],
+    plugins: [cssModulesPlugin({v2: true})],
 }).then(() => {
     copyPublic();
     console.log('watching...');

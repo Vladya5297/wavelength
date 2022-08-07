@@ -1,0 +1,29 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.wheelCoverTop {
+    position: absolute;
+    top: 0px;
+    width: 500px;
+    height: 250px;
+    background-color: #3939cf;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    box-sizing: border-box;
+    border: 15px solid #111137;
+    border-bottom: none;
+}
+
+.wheelCoverBottom {
+    position: absolute;
+    top: 250px;
+    width: 500px;
+    height: 250px;
+    background-color: #111137;
+    border-radius: 0 0 50% 50% / 0 0 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

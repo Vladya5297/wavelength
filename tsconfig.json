@@ -23,6 +23,6 @@
         "baseUrl": "./",
         "plugins": [{ "name": "typescript-plugin-css-modules" }]
     },
-    "include": ["client"],
+    "include": ["client", "server"],
     "exclude": ["scripts"]
 }

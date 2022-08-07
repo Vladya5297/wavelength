@@ -1,37 +1,18 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 
-import {Arrow} from '../Arrow';
-import {socket} from '../../utils/socket';
+import {socket} from 'client/utils/socket';
 
-import {SpinButton} from './SpinButton';
-import {ArrowSlider} from './ArrowSlider';
+import {makeSegments} from './utils';
 
-import css from './style.module.css';
-
-const targetSegments = [
-    {text: '2', fillStyle: '#ec9221'},
-    {text: '3', fillStyle: '#ef3238'},
-    {text: '4', fillStyle: '#58809e'},
-    {text: '3', fillStyle: '#ef3238'},
-    {text: '2', fillStyle: '#ec9221'},
-].map(props => ({...props, textFontFamily: 'sans-serif'}));
-
-const segments = Array.from({length: 36});
-segments.splice(0, 5, ...targetSegments);
-segments.splice(18, 23, ...targetSegments);
-
-const OpenButton = () => {
-    const onClick = () => {
-        socket.emit('host', null);
-    };
-
-    return <button type="button" onClick={onClick}>Открыть</button>;
+const spinCallback = () => {
+    socket.emit('wheel', window.wheel.getRotationPosition());
 };
 
 export const Wheel = () => {
     useEffect(() => {
         const backgroundColor = '#dedbc7';
-        // @ts-ignore
+        const segments = makeSegments();
+
         window.wheel = new window.Winwheel({
             canvasId: 'wheel',
             textOrientation: 'vertical',
@@ -49,26 +30,8 @@ export const Wheel = () => {
                 duration: 2,
                 spins: 2,
                 direction: 'clockwise',
-                callbackFinished: () => {
-                    socket.emit('wheel', window.wheel.getRotationPosition());
-                },
+                callbackFinished: spinCallback,
             },
-        });
-    }, []);
-
-    const [angle, setAngle] = useState(0);
-    const [card, setCard] = useState<string[]>([]);
-    const [host, setHost] = useState<string | null>(null);
-
-    useEffect(() => {
-        socket.on('card', (value: string[]) => {
-            setCard(value);
-        });
-    }, []);
-
-    useEffect(() => {
-        socket.on('angle', (value: number) => {
-            setAngle(value);
         });
     }, []);
 
@@ -79,43 +42,7 @@ export const Wheel = () => {
         });
     }, []);
 
-    useEffect(() => {
-        socket.on('host', (value: string | null) => {
-            setHost(value);
-        });
-    }, []);
-
-    const onChange = (value: number) => {
-        setAngle(value);
-        socket.emit('angle', value);
-    };
-
-    const isHost = host === socket.id;
-    const isWheelVisible = host === null || isHost;
-
-    let button;
-    if (host === socket.id) {
-        button = <OpenButton />;
-    } else if (host !== null) {
-        button = null;
-    } else {
-        button = <SpinButton />;
-    }
-
     return (
-        <div className={css.wrapper}>
-            <div className={css.wheelWrapper}>
-                <canvas id="wheel" width="500" height="500" />
-                {isWheelVisible ? null : <div className={css.wheelCoverTop} />}
-                <div className={css.wheelCover}>
-                    <ArrowSlider value={angle} onChange={onChange} />
-                </div>
-                <div className={css.arrow}>
-                    <Arrow angle={angle} />
-                </div>
-            </div>
-            {button}
-            {card}
-        </div>
+        <canvas id="wheel" width="500" height="500" />
     );
 };

@@ -4,10 +4,7 @@ import {hostSlice} from 'client/store/host';
 import {cardSlice} from 'client/store/card';
 import {angleSlice} from 'client/store/angle';
 
-const url = new URL(window.location.href);
-url.port = '3000';
-
-export const socket = io(url.toString(), {transports: ['websocket']});
+export const socket = io();
 
 socket.on('host', (value: string | null) => {
     store.dispatch(hostSlice.actions.setup(value));

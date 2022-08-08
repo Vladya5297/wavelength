@@ -51,6 +51,7 @@
         "prefer-destructuring": "off",
         "max-classes-per-file": "off",
         "no-use-before-define": "off",
+        "no-param-reassign": "off",
         
         "indent": "off",
         "@typescript-eslint/indent": ["error", 4],

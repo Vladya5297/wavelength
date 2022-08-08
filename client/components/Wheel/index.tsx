@@ -1,14 +1,19 @@
 import React, {useEffect} from 'react';
+import {useDispatch} from 'react-redux';
 
 import {socket} from 'client/utils/socket';
+import {wheelSlice} from 'client/store/wheel';
 
 import {makeSegments} from './utils';
 
-const spinCallback = () => {
-    socket.emit('wheel', window.wheel.getRotationPosition());
-};
-
 export const Wheel = () => {
+    const dispatch = useDispatch();
+
+    const spinCallback = () => {
+        socket.emit('wheel', window.wheel.getRotationPosition());
+        dispatch(wheelSlice.actions.setDone());
+    };
+
     useEffect(() => {
         const backgroundColor = '#dedbc7';
         const segments = makeSegments();
@@ -17,6 +22,7 @@ export const Wheel = () => {
             canvasId: 'wheel',
             textOrientation: 'vertical',
             textAlignment: 'outer',
+            textMargin: 20,
             fillStyle: backgroundColor,
             strokeStyle: backgroundColor,
             lineWidth: 1,

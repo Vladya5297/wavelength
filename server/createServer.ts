@@ -13,7 +13,7 @@ export interface Response<B = any> extends Express.Response {
     send: Send<B, this>;
 }
 
-export const createServer = (path: string, port: number) => {
+export const createServer = (path: string) => {
     const app = express();
 
     app.use(express.json());
@@ -23,10 +23,6 @@ export const createServer = (path: string, port: number) => {
         res.sendFile('index.html', {
             root: path,
         });
-    });
-
-    app.listen(port, () => {
-        console.log(`listening at http://localhost:${port}`);
     });
 
     return app;

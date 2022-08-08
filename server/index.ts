@@ -1,13 +1,18 @@
 import path from 'path';
+import {createServer as createHttpServer} from 'http';
 
 import {Server} from 'socket.io';
 
 import {createServer} from './createServer';
 import * as api from './api';
 
-createServer(path.resolve(__dirname, './public'), 80);
+const app = createServer(path.resolve(__dirname, './public'));
+const httpServer = createHttpServer(app);
+const io = new Server(httpServer);
 
-const io = new Server(3000);
+const port = 80;
+httpServer.listen(port);
+console.log(`listening at http://localhost:${port}`);
 
 io.on('connection', socket => {
     Object.values(api).forEach(handler => {

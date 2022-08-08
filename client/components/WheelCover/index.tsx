@@ -11,7 +11,7 @@ export const WheelCover = () => {
 
     return (
         <div className={css.wrapper}>
-            {isWheelHidden ? <div className={css.wheelCoverTop} /> : null}
+            <div className={css.wheelCoverTop} style={{backgroundColor: isWheelHidden ? 'blue' : 'unset'}} />
 
             <div className={css.wheelCoverBottom}>
                 {!isHost ? <ArrowSlider /> : null}

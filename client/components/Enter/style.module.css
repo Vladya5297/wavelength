@@ -1,0 +1,13 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+    height: 150px;
+    color: white;
+}
+
+.confirmButton {
+    padding: 10px;
+}

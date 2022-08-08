@@ -1,7 +1,9 @@
-import {roomSlice} from 'client/store/room';
-import {socket} from 'client/utils/socket';
 import React, {useState} from 'react';
 import {useDispatch} from 'react-redux';
+import {roomSlice} from 'client/store/room';
+import {socket} from 'client/utils/socket';
+
+import css from './style.module.css';
 
 export const Enter = () => {
     const dispatch = useDispatch();
@@ -17,9 +19,11 @@ export const Enter = () => {
     };
 
     return (
-        <div>
+        <div className={css.wrapper}>
+            <span>Введите название комнаты</span>
             <input type="text" value={value} onChange={onChange} />
             <button
+                className={css.confirmButton}
                 disabled={!value.length}
                 onClick={onClick}
                 type="button"

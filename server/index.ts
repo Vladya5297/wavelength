@@ -15,7 +15,11 @@ httpServer.listen(port);
 console.log(`listening at http://localhost:${port}`);
 
 io.on('connection', socket => {
-    Object.values(api).forEach(handler => {
-        handler(socket, io);
+    socket.on('room', (value: string) => {
+        socket.join(value);
+
+        Object.values(api).forEach(handler => {
+            handler(socket, io);
+        });
     });
 });

@@ -1,12 +1,20 @@
 import type {Server, Socket} from 'socket.io';
 
-let angle = 0;
+import {getSocketRoom, subscribeClearState} from './utils';
+
+const state: Map<string, number> = new Map();
 
 export const angleApi = (socket: Socket, server: Server) => {
-    socket.emit('angle', angle);
+    const room = getSocketRoom(socket);
+    const initialValue = state.get(room) ?? 0;
+
+    socket.emit('angle', initialValue);
 
     socket.on('angle', (value: number) => {
-        angle = value;
-        server.emit('angle', angle);
+        state.set(room, value);
+
+        server.to(room).emit('angle', value);
     });
+
+    subscribeClearState(socket, server, state);
 };

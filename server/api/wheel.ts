@@ -1,12 +1,18 @@
-import type {Socket} from 'socket.io';
+import type {Server, Socket} from 'socket.io';
 
-let wheel = -25;
+import {getSocketRoom} from './utils';
 
-export const wheelApi = (socket: Socket) => {
-    socket.emit('wheel', wheel);
+const state: Map<string, number> = new Map();
+
+export const wheelApi = (socket: Socket, server: Server) => {
+    const room = getSocketRoom(socket);
+    const initialValue = state.get(room) ?? -25;
+
+    socket.emit('wheel', initialValue);
 
     socket.on('wheel', (value: number) => {
-        wheel = value;
-        socket.broadcast.emit('wheel', wheel);
+        state.set(room, value);
+
+        server.to(room).emit('wheel', value);
     });
 };

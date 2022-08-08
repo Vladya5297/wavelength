@@ -8,12 +8,15 @@ import {cardSlice} from './card';
 import type {Card} from './card';
 import {wheelSlice} from './wheel';
 import type {Wheel} from './wheel';
+import {roomSlice} from './room';
+import type {Room} from './room';
 
 export type State = {
     angle: Angle;
     host: Host;
     card: Card;
     wheel: Wheel;
+    room: Room;
 };
 
 export const store = configureStore<State>({
@@ -22,5 +25,6 @@ export const store = configureStore<State>({
         host: hostSlice.reducer,
         card: cardSlice.reducer,
         wheel: wheelSlice.reducer,
+        room: roomSlice.reducer,
     },
 });

@@ -1,8 +1,15 @@
 {
     "name": "wavelength",
+    "engines": {
+        "node": "16.x"
+    },
     "scripts": {
+        "start": "node build/index.js",
+        "build": "npm run build-server && npm run build-client",
         "build-client": "node scripts/buildClient.js",
-        "build-server": "node scripts/buildServer.js"
+        "watch-client": "node scripts/buildClient.js watch",
+        "build-server": "node scripts/buildServer.js",
+        "watch-server": "node scripts/buildServer.js watch"
     },
     "dependencies": {
         "@faker-js/faker": "^7.3.0",

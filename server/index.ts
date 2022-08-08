@@ -10,7 +10,7 @@ const app = createServer(path.resolve(__dirname, './public'));
 const httpServer = createHttpServer(app);
 const io = new Server(httpServer);
 
-const port = 80;
+const port = process.env.PORT ?? 80;
 httpServer.listen(port);
 console.log(`listening at http://localhost:${port}`);
 

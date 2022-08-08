@@ -21,12 +21,14 @@ const copyPublic = () => {
     });
 };
 
+const watch = process.argv[2];
+
 esbuild.build({
     entryPoints: [path.join(clientDirName, 'index.tsx')],
     outfile: path.join(buildDirName, 'index.js'),
     bundle: true,
     sourcemap: true,
-    watch: {
+    watch: watch ? {
         onRebuild(error) {
             if (error) {
                 console.error('rebuild failed:', error);
@@ -35,9 +37,9 @@ esbuild.build({
                 console.log('rebuild complited');
             }
         },
-    },
+    } : false,
     plugins: [cssModulesPlugin({v2: true})],
 }).then(() => {
     copyPublic();
-    console.log('watching...');
+    console.log('build completed');
 });

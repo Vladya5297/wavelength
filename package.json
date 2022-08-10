@@ -5,6 +5,7 @@
     },
     "scripts": {
         "start": "node build/index.js",
+        "watch": "npm run watch-client & npm run watch-server & npx nodemon ./build/index.js",
         "build": "npm run build-server && npm run build-client",
         "build-client": "node scripts/buildClient.js",
         "watch-client": "node scripts/buildClient.js watch",

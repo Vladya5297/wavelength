@@ -26,6 +26,7 @@ const watch = process.argv[2];
 esbuild.build({
     entryPoints: [path.join(clientDirName, 'index.tsx')],
     outfile: path.join(buildDirName, 'index.js'),
+    loader: {'.png': 'file', '.svg': 'file'},
     bundle: true,
     sourcemap: true,
     watch: watch ? {

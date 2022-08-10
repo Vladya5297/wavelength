@@ -2,6 +2,7 @@ import React from 'react';
 import {useSelector} from 'react-redux';
 import cn from 'classnames';
 
+import url from 'client/images/wheel-background.png';
 import type {State} from 'client/store';
 
 import {Arrow} from '../Arrow';
@@ -17,10 +18,14 @@ export const Game = () => {
     return (
         <div className={css.wrapper}>
             <div className={css.wheelWrapper}>
+                <img className={css.wheelBackground} src={url} alt="" />
+
                 <Wheel />
+
                 <div className={css.cover}>
                     <WheelCover />
                 </div>
+
                 <div className={css.arrow}>
                     <Arrow />
                 </div>

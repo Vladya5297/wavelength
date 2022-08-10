@@ -1,23 +1,10 @@
 .wrapper {
     position: relative;
+    display: flex;
+    justify-content: center;
 }
 
-.center {
-    width: 100px;
-    height: 100px;
-    border-radius: 100%;
-    background-color: red;
-    border: 1px solid black;
-}
-
-.pointer {
-    width: 4px;
-    height: 150px;
+.arrow {
     position: absolute;
-    top: -150px;
-    left: 48px;
-    background-color: red;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    border-top: 1px solid black;
+    bottom: -52px;
 }

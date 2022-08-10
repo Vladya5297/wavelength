@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
 .wheelBackground {
@@ -30,7 +30,7 @@
 }
 
 .buttonWrapper {
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
 .card {

@@ -9,8 +9,18 @@ import {makeSegments} from './utils';
 export const Wheel = () => {
     const dispatch = useDispatch();
 
+    const spin = (stopAngle: number) => {
+        dispatch(wheelSlice.actions.setPending());
+
+        const wheel = window.wheel;
+        wheel.rotationAngle = 0;
+        wheel.draw();
+
+        wheel.animation.stopAngle = stopAngle;
+        wheel.startAnimation();
+    };
+
     const spinCallback = () => {
-        socket.emit('wheel', window.wheel.getRotationPosition());
         dispatch(wheelSlice.actions.setDone());
     };
 
@@ -26,15 +36,14 @@ export const Wheel = () => {
             fillStyle: backgroundColor,
             strokeStyle: backgroundColor,
             lineWidth: 1,
-            rotationAngle: -25,
-            pointerAngle: 90,
+            pointerAngle: 0,
             numSegments: 36,
             segments,
             animation:
             {
                 type: 'spinToStop',
                 duration: 2,
-                spins: 2,
+                spins: 1,
                 direction: 'clockwise',
                 callbackFinished: spinCallback,
             },
@@ -42,10 +51,11 @@ export const Wheel = () => {
     }, []);
 
     useEffect(() => {
-        socket.on('wheel', (value: number) => {
-            window.wheel.rotationAngle = value;
-            window.wheel.draw();
-        });
+        socket.on('wheel', spin);
+
+        return () => {
+            socket.off('wheel', spin);
+        };
     }, []);
 
     return (

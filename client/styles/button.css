@@ -1,0 +1,24 @@
+button {
+    --main-color: #ec9221;
+    padding: 10px 20px;
+    min-width: 120px;
+    font-family: Comic Sans MS;
+    font-size: medium;
+    background-color: var(--main-color);
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
+button:hover {
+    filter: brightness(1.2);
+}
+
+button:active {
+    filter: brightness(0.8);
+}
+
+button:disabled {
+    pointer-events: none;
+    cursor: default;
+}

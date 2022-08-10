@@ -16,5 +16,6 @@ export const angleApi = (socket: Socket, server: Server) => {
         server.to(room).emit('angle', value);
     });
 
-    subscribeClearState(socket, server, state);
+    const clearCallback = () => {console.log('cleared angle for empty room', room)};
+    subscribeClearState(socket, server, state, clearCallback);
 };

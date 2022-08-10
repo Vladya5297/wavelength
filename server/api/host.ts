@@ -25,5 +25,6 @@ export const hostApi = (socket: Socket, server: Server) => {
         }
     });
 
-    subscribeClearState(socket, server, state);
+    const clearCallback = () => {console.log('cleared host for empty room', room)};
+    subscribeClearState(socket, server, state, clearCallback);
 };

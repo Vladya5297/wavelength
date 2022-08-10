@@ -21,5 +21,6 @@ export const cardApi = (socket: Socket, server: Server) => {
         server.to(room).emit('card', value);
     });
 
-    subscribeClearState(socket, server, state);
+    const clearCallback = () => {console.log('cleared card for empty room', room)};
+    subscribeClearState(socket, server, state, clearCallback);
 };

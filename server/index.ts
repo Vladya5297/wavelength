@@ -15,11 +15,18 @@ httpServer.listen(port);
 console.log(`listening at http://localhost:${port}`);
 
 io.on('connection', socket => {
+    console.log('user connected', socket.id);
+
     socket.on('room', (value: string) => {
         socket.join(value);
+        console.log(`user ${socket.id} joined room`, value);
 
         Object.values(api).forEach(handler => {
             handler(socket, io);
         });
+    });
+
+    socket.on('disconnect', () => {
+        console.log('user disconnected', socket.id);
     });
 });

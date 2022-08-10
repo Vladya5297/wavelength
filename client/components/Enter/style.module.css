@@ -1,13 +1,22 @@
 .wrapper {
+    height: 170px;
+    width: fit-content;
+    padding: 30px;
+
+    color: #fff;
+    background-color: #111137;
+    box-shadow: 0 0 10px 0 black;
+    
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
-    height: 150px;
-    color: white;
+    
+    position: absolute;
+    inset: 0;
+    margin: auto;
 }
 
-.confirmButton {
-    padding: 10px;
+.wrapper h2 {
+    margin: 0;
 }

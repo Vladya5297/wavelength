@@ -1,32 +1,26 @@
 import React from 'react';
-import {faker} from '@faker-js/faker';
-import {useDispatch} from 'react-redux';
+import {useSelector} from 'react-redux';
 
 import {socket} from 'client/utils/socket';
-import {wheelSlice} from 'client/store/wheel';
-
-import css from './style.module.css';
-
-const spin = () => {
-    const wheel = window.wheel;
-    wheel.rotationAngle = 0;
-    wheel.draw();
-
-    const stopAngle = faker.datatype.number({min: 45, max: 190});
-    wheel.animation.stopAngle = stopAngle;
-
-    wheel.startAnimation();
-};
+import type {State} from 'client/store';
 
 export const SpinButton = () => {
-    const dispatch = useDispatch();
+    const status = useSelector((state: State) => state.wheel.status);
+    const isDisabled = status === 'pending';
 
     const onClick = () => {
-        dispatch(wheelSlice.actions.setPending());
-        spin();
+        socket.emit('wheel');
         socket.emit('card');
         socket.emit('host', socket.id);
     };
 
-    return <button className={css.spinButton} type="button" onClick={onClick}>Крутить</button>;
+    return (
+        <button
+            disabled={isDisabled}
+            type="button"
+            onClick={onClick}
+        >
+            Крутить
+        </button>
+    );
 };

@@ -1,0 +1,13 @@
+input[type="text"] {
+    padding: 5px;
+    width: 100%;
+    font-family: Comic Sans MS;
+    font-size: medium;
+    border-radius: 0;
+    border: none;
+    transition: all 0.1s;
+}
+
+input[type="text"]:focus {
+    outline: 2px solid #ec9221;
+}

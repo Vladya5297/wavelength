@@ -20,10 +20,9 @@ export const Enter = () => {
 
     return (
         <div className={css.wrapper}>
-            <span>Введите название комнаты</span>
+            <h2>Введите название комнаты</h2>
             <input type="text" value={value} onChange={onChange} />
             <button
-                className={css.confirmButton}
                 disabled={!value.length}
                 onClick={onClick}
                 type="button"

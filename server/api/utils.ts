@@ -8,6 +8,7 @@ export const subscribeClearState = (
     socket: Socket,
     server: Server,
     state: Map<string, unknown>,
+    callback?: () => void,
 ) => {
     const room = getSocketRoom(socket);
 
@@ -15,6 +16,7 @@ export const subscribeClearState = (
         const sockets = await server.in(room).fetchSockets();
         if (sockets.length === 0) {
             state.delete(room);
+            callback?.();
         }
     });
 };

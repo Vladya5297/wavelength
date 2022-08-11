@@ -1,6 +1,6 @@
 import React from 'react';
 import {useGame} from 'client/utils/useGame';
-import url from 'client/images/wheel-cover.png';
+import url from 'client/images/wheel-cover.svg';
 
 import {ArrowSlider} from '../ArrowSlider';
 

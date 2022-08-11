@@ -4,8 +4,7 @@
 
 .cover {
     position: absolute;
-    top: -10px;
-    left: -10px;
+    filter: drop-shadow(0px 0px 5px black);
 }
 
 .wheelCoverTop {

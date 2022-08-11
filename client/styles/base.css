@@ -1,8 +1,9 @@
 html {
     height: 100vh;
     width: 100vw;
-    background-image: url('client/images/background.png');
+    background-image: url('client/images/background.svg');
     font-family: Comic Sans MS;
+    background-color: #202258;
 }
 
 body {

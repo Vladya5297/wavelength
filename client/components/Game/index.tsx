@@ -2,7 +2,7 @@ import React from 'react';
 import {useSelector} from 'react-redux';
 import cn from 'classnames';
 
-import url from 'client/images/wheel-background.png';
+import url from 'client/images/wheel-background.svg';
 import type {State} from 'client/store';
 
 import {Arrow} from '../Arrow';

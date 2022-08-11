@@ -1,7 +1,7 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 
-import url from 'client/images/arrow.png';
+import url from 'client/images/arrow.svg';
 import type {State} from 'client/store';
 
 import css from './style.module.css';

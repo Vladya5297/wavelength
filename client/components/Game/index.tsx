@@ -3,17 +3,20 @@ import {useSelector} from 'react-redux';
 import cn from 'classnames';
 
 import url from 'client/images/wheel-background.svg';
+import {useGame} from 'client/utils/useGame';
 import type {State} from 'client/store';
 
 import {Arrow} from '../Arrow';
 import {Wheel} from '../Wheel';
 import {WheelCover} from '../WheelCover';
+import {ArrowSlider} from '../ArrowSlider';
 
 import {Button} from './Button';
 import css from './style.module.css';
 
 export const Game = () => {
     const [leftCard, rightCard] = useSelector((state: State) => state.card);
+    const {isHost} = useGame();
 
     return (
         <div className={css.wrapper}>
@@ -23,7 +26,9 @@ export const Game = () => {
                 <Wheel />
 
                 <div className={css.cover}>
-                    <WheelCover />
+                    <WheelCover>
+                        {!isHost ? <ArrowSlider /> : null}
+                    </WheelCover>
                 </div>
 
                 <div className={css.arrow}>

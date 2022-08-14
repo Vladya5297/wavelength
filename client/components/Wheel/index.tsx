@@ -3,8 +3,9 @@ import {useDispatch} from 'react-redux';
 
 import {socket} from 'client/utils/socket';
 import {wheelSlice} from 'client/store/wheel';
+import {useBreakpoint} from 'client/utils/breakpoints';
 
-import {makeSegments} from './utils';
+import {useWheel} from './utils';
 
 export const Wheel = () => {
     const dispatch = useDispatch();
@@ -20,45 +21,22 @@ export const Wheel = () => {
         wheel.startAnimation();
     };
 
-    const spinCallback = () => {
-        dispatch(wheelSlice.actions.setDone());
-    };
-
     useEffect(() => {
-        const backgroundColor = '#dedbc7';
-        const segments = makeSegments();
-
-        window.wheel = new window.Winwheel({
-            canvasId: 'wheel',
-            textOrientation: 'vertical',
-            textAlignment: 'outer',
-            textMargin: 20,
-            fillStyle: backgroundColor,
-            strokeStyle: backgroundColor,
-            lineWidth: 1,
-            pointerAngle: 0,
-            numSegments: 36,
-            segments,
-            animation:
-            {
-                type: 'spinToStop',
-                duration: 2,
-                spins: 1,
-                direction: 'clockwise',
-                callbackFinished: spinCallback,
-            },
-        });
-    }, []);
-
-    useEffect(() => {
-        socket.on('wheel', spin);
-
-        return () => {
-            socket.off('wheel', spin);
+        const callback = (value: number) => {
+            spin(value);
+            wheelSlice.actions.setup(value);
         };
+
+        socket.on('wheel', callback);
+
+        return () => {socket.off('wheel', callback)};
     }, []);
+
+    const size = useBreakpoint({'-s': 300, 's-l': 400, 'l-': 500, fallback: 300});
+
+    useWheel([size]);
 
     return (
-        <canvas id="wheel" width="500" height="500" />
+        <canvas id="wheel" width={size} height={size} />
     );
 };

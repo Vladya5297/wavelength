@@ -1,12 +1,16 @@
 import React from 'react';
+import type {ReactNode} from 'react';
+
 import {useGame} from 'client/utils/useGame';
 import url from 'client/images/wheel-cover.svg';
 
-import {ArrowSlider} from '../ArrowSlider';
-
 import css from './style.module.css';
 
-export const WheelCover = () => {
+type Props = {
+    children: ReactNode;
+};
+
+export const WheelCover = ({children}: Props) => {
     const {isRunning, isHost} = useGame();
     const isWheelHidden = isRunning && !isHost;
 
@@ -17,7 +21,7 @@ export const WheelCover = () => {
             <img className={css.cover} src={url} alt="" />
 
             <div className={css.wheelCoverBottom}>
-                {!isHost ? <ArrowSlider /> : null}
+                {children}
             </div>
         </div>
     );

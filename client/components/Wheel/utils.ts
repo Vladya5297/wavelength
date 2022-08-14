@@ -1,4 +1,8 @@
+import type {State} from 'client/store';
+import {wheelSlice} from 'client/store/wheel';
 import type {SegmentOptions} from 'client/types/Winwheel';
+import {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 
 export const makeSegments = () => {
     const targetSegments = [
@@ -14,4 +18,40 @@ export const makeSegments = () => {
     segments.splice(18, 23, ...targetSegments);
 
     return segments;
+};
+
+export const useWheel = (dependencies: unknown[]) => {
+    const rotationAngle = useSelector((state: State) => state.wheel.value);
+    const dispatch = useDispatch();
+
+    const spinCallback = () => {
+        dispatch(wheelSlice.actions.setDone());
+    };
+
+    useEffect(() => {
+        const backgroundColor = '#dedbc7';
+        const segments = makeSegments();
+
+        window.wheel = new window.Winwheel({
+            canvasId: 'wheel',
+            textOrientation: 'vertical',
+            textAlignment: 'outer',
+            textMargin: 20,
+            fillStyle: backgroundColor,
+            strokeStyle: backgroundColor,
+            lineWidth: 1,
+            pointerAngle: 0,
+            rotationAngle,
+            numSegments: 36,
+            segments,
+            animation:
+            {
+                type: 'spinToStop',
+                duration: 2,
+                spins: 1,
+                direction: 'clockwise',
+                callbackFinished: spinCallback,
+            },
+        });
+    }, dependencies);
 };

@@ -19,16 +19,15 @@ export const Enter = () => {
     };
 
     return (
-        <div className={css.wrapper}>
+        <form className={css.wrapper} onSubmit={onClick}>
             <h2>Введите название комнаты</h2>
             <input type="text" value={value} onChange={onChange} />
             <button
                 disabled={!value.length}
-                onClick={onClick}
-                type="button"
+                type="submit"
             >
                 Подтведить
             </button>
-        </div>
+        </form>
     );
 };

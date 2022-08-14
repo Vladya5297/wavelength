@@ -12,7 +12,7 @@ export const wheelApi = (socket: Socket, server: Server) => {
     socket.emit('wheel', initialValue);
 
     socket.on('wheel', () => {
-        const value = faker.datatype.number({min: -45, max: 100});
+        const value = faker.datatype.number({min: -45, max: 95});
         state.set(room, value);
 
         server.to(room).emit('wheel', value);

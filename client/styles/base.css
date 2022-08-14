@@ -1,9 +1,14 @@
+@font-face {
+	font-family: 'Comic-Sans'; 
+	src: local(Comic Sans MS), url(./Comic-Sans-MS.ttf); 
+}
+
 html {
     height: 100vh;
     height: -webkit-fill-available;
     width: 100vw;
     background-image: url('client/images/background.svg');
-    font-family: Comic Sans MS;
+    font-family: Comic-Sans;
     background-color: #202258;
 }
 

@@ -2,7 +2,7 @@ button {
     --main-color: #ec9221;
     padding: 10px 20px;
     min-width: 120px;
-    font-family: Comic Sans MS;
+    font-family: Comic-Sans;
     font-size: medium;
     background-color: var(--main-color);
     cursor: pointer;

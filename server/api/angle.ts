@@ -13,7 +13,7 @@ export const angleApi = (socket: Socket, server: Server) => {
     socket.on('angle', (value: number) => {
         state.set(room, value);
 
-        server.to(room).emit('angle', value);
+        socket.to(room).emit('angle', value);
     });
 
     const clearCallback = () => {console.log('cleared angle for empty room', room)};

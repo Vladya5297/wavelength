@@ -1,16 +1,25 @@
 import React from 'react';
-import {useSelector} from 'react-redux';
-import Slider from 'rc-slider';
+import {useDispatch, useSelector} from 'react-redux';
+import SliderBase from 'rc-slider';
+import type {SliderProps, SliderRef} from 'rc-slider/lib/Slider';
 
 import {socket} from 'client/utils/socket';
 import type {State} from 'client/store';
+import {angleSlice} from 'client/store/angle';
+
+const Slider = SliderBase as React.ForwardRefExoticComponent<
+SliderProps<number>
+& React.RefAttributes<SliderRef>
+>;
 
 const backgroundColor = '#ec9221';
 
 export const ArrowSlider = () => {
+    const dispatch = useDispatch();
     const angle = useSelector((state: State) => state.angle);
 
-    const onChange = (value: number | number[]) => {
+    const onChange = (value: number) => {
+        dispatch(angleSlice.actions.setup(value));
         socket.emit('angle', value);
     };
 

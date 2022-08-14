@@ -1,5 +1,6 @@
 html {
     height: 100vh;
+    height: -webkit-fill-available;
     width: 100vw;
     background-image: url('client/images/background.svg');
     font-family: Comic Sans MS;

@@ -4,58 +4,37 @@
     justify-content: center;
     align-items: center;
     margin-top: 40px;
-}
-
-.wheelBackground {
-    position: absolute;
-    z-index: -1;
-    width: 110%;
-    height: 110%;
+    gap: 40px;
 }
 
 .wheelWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: relative;
     width: 300px;
-}
-
-.arrow {
-    position: absolute;
-}
-
-.cover {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.buttonWrapper {
-    margin-top: 40px;
-}
-
-.card {
-    position: absolute;
-    bottom: 70px;
-    text-align: center;
-    width: 200px;
-    height: 100px;
-    padding: 10px;
-    box-sizing: border-box;
+    height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.cardsWrapper {
+    height: 100px;
+    display: flex;
+    gap: 20px;
 }
 
 .leftCard {
     background-color: #ffa667;
-    left: -50px;
 }
 
 .rightCard {
     background-color: #8bd7dc;
-    right: -50px;
+}
+
+.sliderWrapper {
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media (min-width: 576px) and (min-height: 550px) {
@@ -64,16 +43,14 @@
         height: 400px;
     }
 
-    .card {
-        bottom: 50px;
+    .cardsWrapper {
+        position: absolute;
+        bottom: 20%;
     }
 
-    .leftCard {
-        left: -80px;
-    }
-    
-    .rightCard {
-        right: -80px;
+    .sliderWrapper {
+        height: 100px;
+        width: 160px;
     }
 }
 
@@ -83,15 +60,13 @@
         height: 500px;
     }
 
-    .card {
-        bottom: 70px;
+    .cardsWrapper {
+        position: absolute;
+        bottom: 20%;
     }
 
-    .leftCard {
-        left: -50px;
-    }
-    
-    .rightCard {
-        right: -50px;
+    .sliderWrapper {
+        height: 100px;
+        width: 180px;
     }
 }

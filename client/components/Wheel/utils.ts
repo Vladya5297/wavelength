@@ -20,7 +20,7 @@ export const makeSegments = () => {
     return segments;
 };
 
-export const useWheel = (dependencies: unknown[]) => {
+export const useWheel = () => {
     const rotationAngle = useSelector((state: State) => state.wheel.value);
     const dispatch = useDispatch();
 
@@ -53,5 +53,5 @@ export const useWheel = (dependencies: unknown[]) => {
                 callbackFinished: spinCallback,
             },
         });
-    }, dependencies);
+    }, []);
 };

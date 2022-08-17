@@ -1,0 +1,4 @@
+.wheel {
+    height: min(70vh, 70vw);
+    width: min(70vh, 70vw);
+}

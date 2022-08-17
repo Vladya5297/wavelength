@@ -3,9 +3,9 @@ import {useDispatch} from 'react-redux';
 
 import {socket} from 'client/utils/socket';
 import {wheelSlice} from 'client/store/wheel';
-import {useBreakpoint} from 'client/utils/breakpoints';
 
 import {useWheel} from './utils';
+import css from './style.module.css';
 
 export const Wheel = () => {
     const dispatch = useDispatch();
@@ -32,11 +32,9 @@ export const Wheel = () => {
         return () => {socket.off('wheel', callback)};
     }, []);
 
-    const size = useBreakpoint({'-s': 300, 's-l': 400, 'l-': 500, fallback: 300});
-
-    useWheel([size]);
+    useWheel();
 
     return (
-        <canvas id="wheel" width={size} height={size} />
+        <canvas id="wheel" className={css.wheel} width={500} height={500} />
     );
 };

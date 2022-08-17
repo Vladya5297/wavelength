@@ -1,0 +1,32 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 90vh;
+    padding: 5vh 0;
+    box-sizing: border-box;
+}
+
+.cardsWrapper {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.leftCard {
+    background-color: #ffa667;
+}
+
+.rightCard {
+    background-color: #8bd7dc;
+}
+
+.sliderWrapper {
+    height: 50px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

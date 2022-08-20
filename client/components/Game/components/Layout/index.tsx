@@ -15,21 +15,27 @@ export const PortraitLayout = () => {
     const [leftCard, rightCard] = useSelector((state: State) => state.card);
 
     return (
-        <div className={portrait.wrapper}>
-            <Wheel />
-
-            <div className={portrait.cardsWrapper}>
-                {leftCard && <Card text={leftCard} className={portrait.leftCard} />}
-
-                {rightCard && <Card text={rightCard} className={portrait.rightCard} />}
+        <>
+            <div className={portrait.wrapper}>
+                <Wheel />
             </div>
 
-            <div className={portrait.sliderWrapper}>
-                <Slider />
-            </div>
+            <div className={portrait.controls}>
+                <div className={portrait.cardsWrapper}>
+                    {leftCard && <Card text={leftCard} className={portrait.leftCard} />}
 
-            <Button />
-        </div>
+                    {rightCard && <Card text={rightCard} className={portrait.rightCard} />}
+                </div>
+
+                <div className={portrait.sliderWrapper}>
+                    <Slider />
+                </div>
+
+                <div className={portrait.buttonWrapper}>
+                    <Button />
+                </div>
+            </div>
+        </>
     );
 };
 

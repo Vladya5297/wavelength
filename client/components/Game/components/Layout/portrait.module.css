@@ -1,18 +1,18 @@
 .wrapper {
+    padding: 5vh 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    height: 90vh;
-    padding: 5vh 0;
-    box-sizing: border-box;
 }
 
 .cardsWrapper {
     height: 100px;
     width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
     display: flex;
     justify-content: space-around;
+    gap: 10px;
 }
 
 .leftCard {
@@ -29,4 +29,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.buttonWrapper {
+    height: 50px;
+}
+
+.controls {
+    min-height: 50vh;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 }

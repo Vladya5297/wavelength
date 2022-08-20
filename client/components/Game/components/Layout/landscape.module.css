@@ -16,20 +16,19 @@
 
 .cardsWrapper {
     height: 100px;
+    max-width: 100vw;
     position: absolute;
-    top: 55%;
+    top: 60%;
     display: flex;
     gap: 20px;
 }
 
 .leftCard {
     background-color: #ffa667;
-    width: 200px;
 }
 
 .rightCard {
     background-color: #8bd7dc;
-    width: 200px;
 }
 
 .sliderWrapper {

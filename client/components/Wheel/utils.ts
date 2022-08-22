@@ -1,8 +1,9 @@
-import type {State} from 'client/store';
-import {wheelSlice} from 'client/store/wheel';
-import type {SegmentOptions} from 'client/types/Winwheel';
 import {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
+
+import {wheelSlice} from '~/store/wheel';
+import type {State} from '~/store';
+import type {SegmentOptions} from '~/types/Winwheel';
 
 export const makeSegments = () => {
     const targetSegments = [

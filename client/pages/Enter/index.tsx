@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {useDispatch} from 'react-redux';
-import {roomSlice} from 'client/store/room';
-import {socket} from 'client/utils/socket';
+
+import {roomSlice} from '~/store/room';
+import {socket} from '~/utils/socket';
 
 import css from './style.module.css';
 

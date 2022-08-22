@@ -1,8 +1,9 @@
 import {io} from 'socket.io-client';
-import {store} from 'client/store';
-import {hostSlice} from 'client/store/host';
-import {cardSlice} from 'client/store/card';
-import {angleSlice} from 'client/store/angle';
+
+import {store} from '~/store';
+import {hostSlice} from '~/store/host';
+import {cardSlice} from '~/store/card';
+import {angleSlice} from '~/store/angle';
 
 export const socket = io();
 

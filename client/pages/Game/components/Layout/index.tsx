@@ -1,7 +1,7 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 
-import type {State} from 'client/store';
+import type {State} from '~/store';
 
 import {Wheel} from '../Wheel';
 import {Button} from '../Button';

@@ -1,5 +1,6 @@
 import {useSelector} from 'react-redux';
-import type {State} from 'client/store';
+
+import type {State} from '~/store';
 
 import {socket} from './socket';
 

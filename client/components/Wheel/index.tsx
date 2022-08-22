@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 
-import {socket} from 'client/utils/socket';
-import {wheelSlice} from 'client/store/wheel';
+import {socket} from '~/utils/socket';
+import {wheelSlice} from '~/store/wheel';
 
 import {useWheel} from './utils';
 import css from './style.module.css';

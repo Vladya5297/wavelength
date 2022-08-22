@@ -1,8 +1,8 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 
-import {socket} from 'client/utils/socket';
-import type {State} from 'client/store';
+import {socket} from '~/utils/socket';
+import type {State} from '~/store';
 
 export const SpinButton = () => {
     const status = useSelector((state: State) => state.wheel.status);

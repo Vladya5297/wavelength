@@ -42,9 +42,18 @@
         "import/no-unresolved": "off",
         "import/extensions": "off",
         "import/no-extraneous-dependencies": "off",
-        "import/order": ["error", {"newlines-between": "always-and-inside-groups"}],
+        "import/order": ["error", {
+            "newlines-between": "always",
+            "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+            "pathGroups": [
+                {
+                    "pattern": "~/**",
+                    "group": "internal"
+                }
+            ]
+        }],
         
-        "object-curly-newline": ["error", { "consistent": true }],
+        "object-curly-newline": ["error", {"consistent": true}],
         "arrow-parens": ["error", "as-needed"],
         "no-unused-expressions": "off",
         "arrow-body-style": "off",
@@ -58,7 +67,7 @@
         "@typescript-eslint/indent": ["error", 4],
 
         "semi": "off",
-        "@typescript-eslint/semi": ["error", "always", { "omitLastInOneLineBlock": true}],
+        "@typescript-eslint/semi": ["error", "always", {"omitLastInOneLineBlock": true}],
 
         "object-curly-spacing": "off",
         "@typescript-eslint/object-curly-spacing": ["error", "never"],

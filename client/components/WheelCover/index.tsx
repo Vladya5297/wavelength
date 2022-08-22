@@ -1,7 +1,7 @@
 import React from 'react';
 
-import {useGame} from 'client/utils/useGame';
-import url from 'client/images/wheel-cover.svg';
+import {useGame} from '~/utils/useGame';
+import url from '~/images/wheel-cover.svg';
 
 import css from './style.module.css';
 

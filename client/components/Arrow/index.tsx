@@ -1,17 +1,24 @@
 import React from 'react';
-import {useSelector} from 'react-redux';
+import type {CSSProperties} from 'react';
+import cn from 'classnames';
 
-import url from 'client/images/arrow.svg';
-import type {State} from 'client/store';
+import url from '~/images/arrow.svg';
 
 import css from './style.module.css';
 
-export const Arrow = () => {
-    const angle = useSelector((state: State) => state.angle);
+type Props = {
+    style?: CSSProperties;
+    className?: string;
+    angle: number;
+};
 
+export const Arrow = ({angle, style = {}, className}: Props) => {
     return (
-        <div className={css.wrapper} style={{transform: `rotate(${angle}deg)`}}>
-            <img className={css.arrow} src={url} alt="" />
-        </div>
+        <img
+            src={url}
+            alt=""
+            className={cn(css.arrow, className)}
+            style={{...style, transform: `rotate(${angle}deg)`}}
+        />
     );
 };

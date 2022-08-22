@@ -1,7 +1,9 @@
 import React from 'react';
-import {useGame} from 'client/utils/useGame';
-import {OpenButton} from 'client/components/OpenButton';
-import {SpinButton} from 'client/components/SpinButton';
+
+import {useGame} from '~/utils/useGame';
+
+import {OpenButton} from '../OpenButton';
+import {SpinButton} from '../SpinButton';
 
 export const Button = () => {
     const {isRunning, isHost} = useGame();

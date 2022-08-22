@@ -1,8 +1,8 @@
 import React from 'react';
-import {socket} from 'client/utils/socket';
-
 import {useSelector} from 'react-redux';
-import type {State} from 'client/store';
+
+import {socket} from '~/utils/socket';
+import type {State} from '~/store';
 
 export const OpenButton = () => {
     const status = useSelector((state: State) => state.wheel.status);

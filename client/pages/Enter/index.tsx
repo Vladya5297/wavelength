@@ -22,7 +22,7 @@ export const Enter = () => {
     return (
         <form className={css.wrapper} onSubmit={onClick}>
             <h2>Введите название комнаты</h2>
-            <input type="text" value={value} onChange={onChange} />
+            <input type="text" value={value} onChange={onChange} maxLength={10} />
             <button
                 disabled={!value.length}
                 type="submit"

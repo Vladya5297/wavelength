@@ -9,7 +9,8 @@ import type {State} from '~/store';
 
 export const Slider = () => {
     const {isHost} = useGame();
-    const angle = useSelector((state: State) => state.angle);
+    const angle = useSelector((state: State) => state.angle.value);
+    const isDisabled = useSelector((state: State) => state.angle.status === 'pending');
 
     const dispatch = useDispatch();
 
@@ -18,5 +19,5 @@ export const Slider = () => {
         socket.emit('angle', value);
     };
 
-    return !isHost ? <ArrowSlider value={angle} onChange={onChange} /> : null;
+    return !isHost ? <ArrowSlider value={angle} disabled={isDisabled} onChange={onChange} /> : null;
 };

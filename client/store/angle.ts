@@ -1,14 +1,30 @@
 import {createSlice} from '@reduxjs/toolkit';
 import type {PayloadAction} from '@reduxjs/toolkit';
 
-export type Angle = number;
+type Status = 'pending' | 'done';
+
+export type Angle = {
+    status: Status;
+    value: number;
+};
+
+const initialState: Angle = {
+    status: 'done',
+    value: 0,
+};
 
 export const angleSlice = createSlice({
     name: 'angle',
-    initialState: 0 as Angle,
+    initialState,
     reducers: {
-        setup(_, action: PayloadAction<Angle>) {
-            return action.payload;
+        setup(state: Angle, action: PayloadAction<number>) {
+            state.value = action.payload;
+        },
+        setPending(state: Angle) {
+            state.status = 'pending';
+        },
+        setDone(state: Angle) {
+            state.status = 'done';
         },
     },
 });

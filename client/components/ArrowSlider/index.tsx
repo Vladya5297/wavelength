@@ -2,35 +2,28 @@ import React from 'react';
 import SliderBase from 'rc-slider';
 import type {SliderProps, SliderRef} from 'rc-slider/lib/Slider';
 
+import css from './style.module.css';
+
 const Slider = SliderBase as React.ForwardRefExoticComponent<
 SliderProps<number>
 & React.RefAttributes<SliderRef>
 >;
 
-const backgroundColor = '#ec9221';
-
 type Props = {
     value: number;
+    disabled?: boolean;
     onChange: (value: number) => void;
 };
 
-export const ArrowSlider = ({value, onChange}: Props) => {
+export const ArrowSlider = ({value, disabled, onChange}: Props) => {
     return (
         <Slider
+            className={css.slider}
+            disabled={disabled}
             min={-90}
             max={90}
             value={value}
             onChange={onChange}
-            handleStyle={{
-                height: 28,
-                width: 28,
-                marginTop: -9,
-                backgroundColor,
-                border: 'none',
-                boxShadow: 'none',
-            }}
-            trackStyle={{backgroundColor, height: 10}}
-            railStyle={{height: 10}}
         />
     );
 };

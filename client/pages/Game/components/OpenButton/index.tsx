@@ -5,8 +5,7 @@ import {socket} from '~/utils/socket';
 import type {State} from '~/store';
 
 export const OpenButton = () => {
-    const status = useSelector((state: State) => state.wheel.status);
-    const isDisabled = status === 'pending';
+    const isDisabled = useSelector((state: State) => state.wheel.status === 'pending');
 
     const onClick = () => {
         socket.emit('host', null);

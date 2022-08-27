@@ -4,23 +4,11 @@
 }
 
 html {
-    height: 100vh;
-    height: -webkit-fill-available;
-    width: 100vw;
     background-image: url('client/images/background.svg');
     font-family: Comic-Sans;
     background-color: #202258;
 }
 
 body {
-    height: 100vh;
-    height: -webkit-fill-available;
-    width: 100vw;
     margin: 0;
-}
-
-#root {
-    height: 100vh;
-    height: -webkit-fill-available;
-    width: 100vw;
 }

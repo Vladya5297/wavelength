@@ -10,7 +10,7 @@ import type {State} from '~/store';
 import css from './style.module.css';
 
 export const Wheel = () => {
-    const angle = useSelector((state: State) => state.angle);
+    const angle = useSelector((state: State) => state.angle.value);
 
     return (
         <div className={css.wrapper}>

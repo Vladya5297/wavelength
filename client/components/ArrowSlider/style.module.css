@@ -1,0 +1,28 @@
+.slider {
+    background-color: unset;
+}
+
+.slider :global(.rc-slider-rail) {
+    height: 10px;
+}
+
+.slider :global(.rc-slider-track) {
+    background-color: #ec9221;
+    height: 10
+}
+
+.slider :global(.rc-slider-handle) {
+    height: 28px;
+    width: 28px;
+    margin-top: -9px;
+    background-color: #ec9221;
+    border: none;
+}
+
+.slider :global(.rc-slider-handle-dragging) {
+    box-shadow: none !important;
+}
+
+.slider:global(.rc-slider-disabled) {
+    filter: brightness(0.8);   
+}

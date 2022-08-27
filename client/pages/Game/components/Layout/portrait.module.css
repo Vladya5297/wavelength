@@ -1,8 +1,12 @@
 .wrapper {
-    padding: 5vh 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.headerWrapper {
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .cardsWrapper {
